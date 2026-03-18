@@ -20,6 +20,8 @@ final class LocationViewModel: ObservableObject {
     private let vpnService = VPNService()
     private var refreshTask: Task<Void, Never>?
     private var vpnTask: Task<Void, Never>?
+    private var vpnDebounceTask: Task<Void, Never>?
+    private var generation = 0
 
     enum RefreshInterval: Int, CaseIterable, Identifiable, Sendable {
         case thirtySeconds = 30
@@ -53,6 +55,7 @@ final class LocationViewModel: ObservableObject {
     }
 
     private func restart() {
+        generation += 1
         refreshTask?.cancel()
         startRefreshLoop()
     }
@@ -63,7 +66,14 @@ final class LocationViewModel: ObservableObject {
                 let previous = isVPNActive
                 isVPNActive = active
                 if previous != active {
-                    restart()
+                    // Debounce: NWPathMonitor fires many times during a single
+                    // network transition; wait 500 ms before reacting.
+                    vpnDebounceTask?.cancel()
+                    vpnDebounceTask = Task {
+                        try? await Task.sleep(for: .milliseconds(500))
+                        guard !Task.isCancelled else { return }
+                        restart()
+                    }
                 }
             }
         }
@@ -84,14 +94,19 @@ final class LocationViewModel: ObservableObject {
         if case .idle = state { state = .loading }
         if case .failed = state { state = .loading }
 
+        let gen = generation
         do {
             let ip = try await ipService.fetchIP()
             let info = try await geoService.fetchGeoInfo(for: ip)
+            // Discard result if a newer fetch was already started (restart was called
+            // while this request was in-flight).
+            guard gen == generation else { return }
             state = .loaded(info)
             lastUpdated = Date()
         } catch is CancellationError {
             // Task was cancelled (e.g. refresh interval changed), don't update state
         } catch {
+            guard gen == generation else { return }
             state = .failed(error.localizedDescription)
         }
     }

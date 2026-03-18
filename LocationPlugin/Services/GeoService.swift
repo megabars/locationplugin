@@ -3,9 +3,9 @@ import Foundation
 struct GeoService: Sendable {
     private struct GeoResponse: Decodable {
         let status: String
-        let country: String
-        let countryCode: String
-        let city: String
+        let country: String?
+        let countryCode: String?
+        let city: String?
         let query: String
     }
 
@@ -23,10 +23,18 @@ struct GeoService: Sendable {
         }
     }
 
+    private static let decoder = JSONDecoder()
+
     func fetchGeoInfo(for ip: String) async throws -> IPInfo {
-        let fields = "status,country,countryCode,city,query"
-        let urlString = "http://ip-api.com/json/\(ip)?fields=\(fields)"
-        guard let url = URL(string: urlString) else {
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "ip-api.com"
+        guard let encodedIP = ip.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+            throw GeoError.invalidURL
+        }
+        components.path = "/json/\(encodedIP)"
+        components.queryItems = [URLQueryItem(name: "fields", value: "status,country,countryCode,city,query")]
+        guard let url = components.url else {
             throw GeoError.invalidURL
         }
         let (data, response) = try await URLSession.shared.data(from: url)
@@ -34,14 +42,17 @@ struct GeoService: Sendable {
         guard (200..<300).contains(statusCode) else {
             throw GeoError.badStatus(statusCode)
         }
-        let geoResponse = try JSONDecoder().decode(GeoResponse.self, from: data)
-        guard geoResponse.status == "success" else {
+        let geoResponse = try Self.decoder.decode(GeoResponse.self, from: data)
+        guard geoResponse.status == "success",
+              let country = geoResponse.country,
+              let countryCode = geoResponse.countryCode,
+              let city = geoResponse.city else {
             throw GeoError.apiFailed
         }
         return IPInfo(
-            country: geoResponse.country,
-            countryCode: geoResponse.countryCode,
-            city: geoResponse.city,
+            country: country,
+            countryCode: countryCode,
+            city: city,
             query: geoResponse.query
         )
     }

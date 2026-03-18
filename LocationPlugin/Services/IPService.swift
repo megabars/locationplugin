@@ -15,13 +15,15 @@ struct IPService: Sendable {
         }
     }
 
+    private static let url = URL(string: "https://api.ipify.org?format=json")!
+    private static let decoder = JSONDecoder()
+
     func fetchIP() async throws -> String {
-        let url = URL(string: "https://api.ipify.org?format=json")!
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await URLSession.shared.data(from: Self.url)
         let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
         guard (200..<300).contains(statusCode) else {
             throw IPError.badStatus(statusCode)
         }
-        return try JSONDecoder().decode(IPResponse.self, from: data).ip
+        return try Self.decoder.decode(IPResponse.self, from: data).ip
     }
 }
