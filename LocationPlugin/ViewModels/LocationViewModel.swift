@@ -6,16 +6,18 @@ final class LocationViewModel: ObservableObject {
     @Published private(set) var lastUpdated: Date? = nil
     @Published var refreshInterval: RefreshInterval {
         didSet {
-            UserDefaults.standard.set(refreshInterval.rawValue, forKey: "refreshInterval")
+            UserDefaults.standard.set(refreshInterval.rawValue, forKey: Self.refreshIntervalKey)
             restart()
         }
     }
+
+    private static let refreshIntervalKey = "refreshInterval"
 
     private let ipService = IPService()
     private let geoService = GeoService()
     private var refreshTask: Task<Void, Never>?
 
-    enum RefreshInterval: Int, CaseIterable, Identifiable {
+    enum RefreshInterval: Int, CaseIterable, Identifiable, Sendable {
         case thirtySeconds = 30
         case oneMinute = 60
         case fiveMinutes = 300
@@ -36,13 +38,9 @@ final class LocationViewModel: ObservableObject {
     }
 
     init() {
-        let saved = UserDefaults.standard.integer(forKey: "refreshInterval")
-        refreshInterval = RefreshInterval(rawValue: saved) ?? .oneMinute
+        let saved = UserDefaults.standard.integer(forKey: Self.refreshIntervalKey)
+        _refreshInterval = Published(wrappedValue: RefreshInterval(rawValue: saved) ?? .oneMinute)
         startRefreshLoop()
-    }
-
-    deinit {
-        refreshTask?.cancel()
     }
 
     func refresh() {
@@ -65,14 +63,17 @@ final class LocationViewModel: ObservableObject {
     }
 
     private func fetchAndUpdate() async {
-        // Show loading only on first fetch; keep existing flag during background refresh
+        // Show loading on first fetch or after failure; keep existing flag during background refresh
         if case .idle = state { state = .loading }
+        if case .failed = state { state = .loading }
 
         do {
             let ip = try await ipService.fetchIP()
             let info = try await geoService.fetchGeoInfo(for: ip)
             state = .loaded(info)
             lastUpdated = Date()
+        } catch is CancellationError {
+            // Task was cancelled (e.g. refresh interval changed), don't update state
         } catch {
             state = .failed(error.localizedDescription)
         }

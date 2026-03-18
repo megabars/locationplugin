@@ -27,7 +27,6 @@ struct MenuContentView: View {
                         .foregroundStyle(.secondary)
                 }
                 .padding(.vertical, 2)
-
                 Button("Retry") { viewModel.refresh() }
             }
         }

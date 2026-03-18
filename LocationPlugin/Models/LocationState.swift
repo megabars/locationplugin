@@ -1,4 +1,4 @@
-enum LocationState {
+enum LocationState: Equatable {
     case idle
     case loading
     case loaded(IPInfo)
