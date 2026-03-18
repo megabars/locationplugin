@@ -12,6 +12,7 @@
 		58B47E018DEB4D9A9254887F /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB7DADEE41407F94FEE79C /* LocationState.swift */; };
 		BAB2F2B915FE4DB6A3DE8E4E /* IPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920808FDEBF4921876B722E /* IPService.swift */; };
 		6FA3F9DCBEE247EABDF19D67 /* GeoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30884726BF840A6B12E1532 /* GeoService.swift */; };
+		A1F2E3D4C5B6A7F8E9D0C1B2 /* VPNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B8C9D0E1F2A3 /* VPNService.swift */; };
 		88F7AC4ED3034D2BA5C4DB30 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF13274A83944EC9597D06B /* LocationViewModel.swift */; };
 		CA78C673F0374388B86BF34A /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECDCDBBAAEE489B8B6B3834 /* MenuContentView.swift */; };
 		882471CB13644FE4AAEFC945 /* FlagEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0176CE30106347A49DFCA2F8 /* FlagEmoji.swift */; };
@@ -24,6 +25,7 @@
 		94AB7DADEE41407F94FEE79C /* LocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
 		0920808FDEBF4921876B722E /* IPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPService.swift; sourceTree = "<group>"; };
 		C30884726BF840A6B12E1532 /* GeoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoService.swift; sourceTree = "<group>"; };
+		B2C3D4E5F6A7B8C9D0E1F2A3 /* VPNService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNService.swift; sourceTree = "<group>"; };
 		6FF13274A83944EC9597D06B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		1ECDCDBBAAEE489B8B6B3834 /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
 		0176CE30106347A49DFCA2F8 /* FlagEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagEmoji.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				0920808FDEBF4921876B722E /* IPService.swift */,
 				C30884726BF840A6B12E1532 /* GeoService.swift */,
+				B2C3D4E5F6A7B8C9D0E1F2A3 /* VPNService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				58B47E018DEB4D9A9254887F /* LocationState.swift in Sources */,
 				BAB2F2B915FE4DB6A3DE8E4E /* IPService.swift in Sources */,
 				6FA3F9DCBEE247EABDF19D67 /* GeoService.swift in Sources */,
+				A1F2E3D4C5B6A7F8E9D0C1B2 /* VPNService.swift in Sources */,
 				88F7AC4ED3034D2BA5C4DB30 /* LocationViewModel.swift in Sources */,
 				CA78C673F0374388B86BF34A /* MenuContentView.swift in Sources */,
 				882471CB13644FE4AAEFC945 /* FlagEmoji.swift in Sources */,

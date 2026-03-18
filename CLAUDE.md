@@ -21,11 +21,11 @@ LocationPlugin is a **macOS menu-bar-only app** that shows the user's country fl
 1. **`LocationPluginApp`** — `@main` entry point. Uses `MenuBarExtra` (menu style, not window) with `LocationViewModel` as `@StateObject`. The menu bar label is driven by `viewModel.state.flagEmoji`.
 2. **`LocationViewModel`** (`@MainActor`, `ObservableObject`) — Owns a periodic refresh loop (`Task.sleep`) that calls two services in sequence. Publishes `LocationState` and `lastUpdated`. Persists the chosen `RefreshInterval` to `UserDefaults`.
 3. **`IPService`** — Fetches the user's external IP from `https://api.ipify.org?format=json`.
-4. **`GeoService`** — Takes an IP, calls `http://ip-api.com/json/{ip}` (plain HTTP — allowed via ATS exception in Info.plist) and returns `IPInfo`.
+4. **`GeoService`** — Takes an IP, calls `http://ip-api.com/json/{ip}?fields=status,country,countryCode,city,query` (plain HTTP — allowed via ATS exception in Info.plist) and returns `IPInfo`. Both services are `struct` + `Sendable`.
 5. **`IPInfo`** — Decodable model with `status`, `country`, `countryCode`, `city`, `query`.
 6. **`LocationState`** — Enum (`idle | loading | loaded(IPInfo) | failed(String)`) with a computed `flagEmoji` property.
 7. **`FlagEmoji`** — Converts an ISO 3166-1 alpha-2 country code to a flag emoji using Unicode regional indicator symbols.
-8. **`MenuContentView`** — Renders the dropdown: IP/city info, last-updated time, refresh button, refresh-interval picker, quit button.
+8. **`MenuContentView`** — Renders the dropdown via `@EnvironmentObject var viewModel`: IP/city info, last-updated time, refresh button (`⌘R`), refresh-interval picker, quit button (`⌘Q`).
 
 ### Key design decisions
 

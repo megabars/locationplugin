@@ -4,6 +4,14 @@ struct MenuContentView: View {
     @EnvironmentObject var viewModel: LocationViewModel
 
     var body: some View {
+        Label(
+            viewModel.isVPNActive ? "VPN: Активен" : "VPN: Выкл",
+            systemImage: viewModel.isVPNActive ? "lock.shield.fill" : "lock.shield"
+        )
+        .foregroundStyle(viewModel.isVPNActive ? .green : .secondary)
+
+        Divider()
+
         Group {
             switch viewModel.state {
             case .idle, .loading:
@@ -37,27 +45,18 @@ struct MenuContentView: View {
             Text("Updated \(date, style: .time)")
                 .font(.caption)
                 .foregroundStyle(.secondary)
+            Divider()
         }
-
-        Divider()
 
         Button("Refresh Now") { viewModel.refresh() }
             .keyboardShortcut("r", modifiers: .command)
 
-        Menu("Refresh Interval") {
+        Picker("Refresh Interval", selection: $viewModel.refreshInterval) {
             ForEach(LocationViewModel.RefreshInterval.allCases) { interval in
-                Button {
-                    viewModel.refreshInterval = interval
-                } label: {
-                    HStack {
-                        Text(interval.label)
-                        if viewModel.refreshInterval == interval {
-                            Image(systemName: "checkmark")
-                        }
-                    }
-                }
+                Text(interval.label).tag(interval)
             }
         }
+        .pickerStyle(.inline)
 
         Divider()
 

@@ -13,9 +13,13 @@ final class LocationViewModel: ObservableObject {
 
     private static let refreshIntervalKey = "refreshInterval"
 
+    @Published private(set) var isVPNActive: Bool = false
+
     private let ipService = IPService()
     private let geoService = GeoService()
+    private let vpnService = VPNService()
     private var refreshTask: Task<Void, Never>?
+    private var vpnTask: Task<Void, Never>?
 
     enum RefreshInterval: Int, CaseIterable, Identifiable, Sendable {
         case thirtySeconds = 30
@@ -41,6 +45,7 @@ final class LocationViewModel: ObservableObject {
         let saved = UserDefaults.standard.integer(forKey: Self.refreshIntervalKey)
         _refreshInterval = Published(wrappedValue: RefreshInterval(rawValue: saved) ?? .oneMinute)
         startRefreshLoop()
+        startVPNMonitor()
     }
 
     func refresh() {
@@ -50,6 +55,18 @@ final class LocationViewModel: ObservableObject {
     private func restart() {
         refreshTask?.cancel()
         startRefreshLoop()
+    }
+
+    private func startVPNMonitor() {
+        vpnTask = Task {
+            for await active in vpnService.statusStream() {
+                let previous = isVPNActive
+                isVPNActive = active
+                if previous != active {
+                    restart()
+                }
+            }
+        }
     }
 
     private func startRefreshLoop() {
