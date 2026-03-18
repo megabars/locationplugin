@@ -1,0 +1,372 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		34F4B0DD7027465A9095E3D2 /* LocationPluginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D204B0CE0A4486B747A322 /* LocationPluginApp.swift */; };
+		5114B3EE09134AFD803EEA69 /* IPInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5053AB7D6E44EF4A0C5D1FD /* IPInfo.swift */; };
+		58B47E018DEB4D9A9254887F /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB7DADEE41407F94FEE79C /* LocationState.swift */; };
+		BAB2F2B915FE4DB6A3DE8E4E /* IPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0920808FDEBF4921876B722E /* IPService.swift */; };
+		6FA3F9DCBEE247EABDF19D67 /* GeoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30884726BF840A6B12E1532 /* GeoService.swift */; };
+		88F7AC4ED3034D2BA5C4DB30 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF13274A83944EC9597D06B /* LocationViewModel.swift */; };
+		CA78C673F0374388B86BF34A /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECDCDBBAAEE489B8B6B3834 /* MenuContentView.swift */; };
+		882471CB13644FE4AAEFC945 /* FlagEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0176CE30106347A49DFCA2F8 /* FlagEmoji.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7BADD58238164132AEF195F9 /* LocationPlugin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationPlugin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13D204B0CE0A4486B747A322 /* LocationPluginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPluginApp.swift; sourceTree = "<group>"; };
+		C5053AB7D6E44EF4A0C5D1FD /* IPInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPInfo.swift; sourceTree = "<group>"; };
+		94AB7DADEE41407F94FEE79C /* LocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
+		0920808FDEBF4921876B722E /* IPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPService.swift; sourceTree = "<group>"; };
+		C30884726BF840A6B12E1532 /* GeoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoService.swift; sourceTree = "<group>"; };
+		6FF13274A83944EC9597D06B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		1ECDCDBBAAEE489B8B6B3834 /* MenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentView.swift; sourceTree = "<group>"; };
+		0176CE30106347A49DFCA2F8 /* FlagEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagEmoji.swift; sourceTree = "<group>"; };
+		A84B046E346642B2A97FB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FC2D23C267345B48E8A1E2F /* LocationPlugin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LocationPlugin.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		063F12B78BB94C7AAA85EDD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6692CFAA770B4760ADFD662F = {
+			isa = PBXGroup;
+			children = (
+				13D204B0CE0A4486B747A322 /* LocationPluginApp.swift */,
+				F7E1152AC87D42C78CB87B3F /* Models */,
+				FB643E5EE26045A58B1907ED /* Services */,
+				8174DA9645694E0389220935 /* ViewModels */,
+				015D8B3F8250481BBE45F4A2 /* Views */,
+				75291BD49C3B485A9C48BC57 /* Utilities */,
+				A84B046E346642B2A97FB381 /* Info.plist */,
+				4FC2D23C267345B48E8A1E2F /* LocationPlugin.entitlements */,
+				5C5CCD5A4C1E4C9DB6EB85ED /* Products */,
+			);
+			path = LocationPlugin;
+			sourceTree = "<group>";
+		};
+		5C5CCD5A4C1E4C9DB6EB85ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BADD58238164132AEF195F9 /* LocationPlugin.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7E1152AC87D42C78CB87B3F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5053AB7D6E44EF4A0C5D1FD /* IPInfo.swift */,
+				94AB7DADEE41407F94FEE79C /* LocationState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FB643E5EE26045A58B1907ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0920808FDEBF4921876B722E /* IPService.swift */,
+				C30884726BF840A6B12E1532 /* GeoService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8174DA9645694E0389220935 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6FF13274A83944EC9597D06B /* LocationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		015D8B3F8250481BBE45F4A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1ECDCDBBAAEE489B8B6B3834 /* MenuContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		75291BD49C3B485A9C48BC57 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0176CE30106347A49DFCA2F8 /* FlagEmoji.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47D76F71E57D439BA083E70D /* LocationPlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5842FD01A1704F36833D0B20 /* Build configuration list for PBXNativeTarget "LocationPlugin" */;
+			buildPhases = (
+				1727F70518D44C2C81DF7FFD /* Sources */,
+				063F12B78BB94C7AAA85EDD3 /* Frameworks */,
+				327E5485752C4BD3A6F196C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocationPlugin;
+			packageProductDependencies = (
+			);
+			productName = LocationPlugin;
+			productReference = 7BADD58238164132AEF195F9 /* LocationPlugin.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DBF2A49C561483F919F17BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					47D76F71E57D439BA083E70D = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 61A2B4D5AC264E39B2910F5A /* Build configuration list for PBXProject "LocationPlugin" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6692CFAA770B4760ADFD662F;
+			productRefGroup = 5C5CCD5A4C1E4C9DB6EB85ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47D76F71E57D439BA083E70D /* LocationPlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		327E5485752C4BD3A6F196C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1727F70518D44C2C81DF7FFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34F4B0DD7027465A9095E3D2 /* LocationPluginApp.swift in Sources */,
+				5114B3EE09134AFD803EEA69 /* IPInfo.swift in Sources */,
+				58B47E018DEB4D9A9254887F /* LocationState.swift in Sources */,
+				BAB2F2B915FE4DB6A3DE8E4E /* IPService.swift in Sources */,
+				6FA3F9DCBEE247EABDF19D67 /* GeoService.swift in Sources */,
+				88F7AC4ED3034D2BA5C4DB30 /* LocationViewModel.swift in Sources */,
+				CA78C673F0374388B86BF34A /* MenuContentView.swift in Sources */,
+				882471CB13644FE4AAEFC945 /* FlagEmoji.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B3BD9EB9889A49D38E41807B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSET_CATALOG_COMPILER_OPTIMIZATION = space;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_NAMES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE03F189017C4D698BEF4AF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSET_CATALOG_COMPILER_OPTIMIZATION = space;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_NAMES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		776C2C8D44F74E6B8FD7E06F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSTET_CATALOG_COMPILER_OPTIMIZATION = space;
+				CODE_SIGN_ENTITLEMENTS = LocationPlugin/LocationPlugin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LocationPlugin/Info.plist;
+				LE_SWIFT_VERSION = 5.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.locationplugin.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1D7C80331DB44059AB11200A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSET_CATALOG_COMPILER_OPTIMIZATION = space;
+				CODE_SIGN_ENTITLEMENTS = LocationPlugin/LocationPlugin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LocationPlugin/Info.plist;
+				LE_SWIFT_VERSION = 5.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.locationplugin.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61A2B4D5AC264E39B2910F5A /* Build configuration list for PBXProject "LocationPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3BD9EB9889A49D38E41807B /* Debug */,
+				AE03F189017C4D698BEF4AF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5842FD01A1704F36833D0B20 /* Build configuration list for PBXNativeTarget "LocationPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				776C2C8D44F74E6B8FD7E06F /* Debug */,
+				1D7C80331DB44059AB11200A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DBF2A49C561483F919F17BB /* Project object */;
+}
