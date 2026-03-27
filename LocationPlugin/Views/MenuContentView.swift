@@ -60,6 +60,13 @@ struct MenuContentView: View {
 
         Divider()
 
+        Toggle("Launch at Login", isOn: Binding(
+            get: { viewModel.launchAtLogin },
+            set: { _ in viewModel.toggleLaunchAtLogin() }
+        ))
+
+        Divider()
+
         Button("Quit") { NSApplication.shared.terminate(nil) }
             .keyboardShortcut("q", modifiers: .command)
     }

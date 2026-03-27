@@ -1,4 +1,5 @@
 import Foundation
+import ServiceManagement
 
 @MainActor
 final class LocationViewModel: ObservableObject {
@@ -14,6 +15,7 @@ final class LocationViewModel: ObservableObject {
     private static let refreshIntervalKey = "refreshInterval"
 
     @Published private(set) var isVPNActive: Bool = false
+    @Published private(set) var launchAtLogin: Bool = (SMAppService.mainApp.status == .enabled)
 
     private let ipService = IPService()
     private let geoService = GeoService()
@@ -52,6 +54,19 @@ final class LocationViewModel: ObservableObject {
 
     func refresh() {
         restart()
+    }
+
+    func toggleLaunchAtLogin() {
+        do {
+            if launchAtLogin {
+                try SMAppService.mainApp.unregister()
+            } else {
+                try SMAppService.mainApp.register()
+            }
+        } catch {
+            // ignore — state will be refreshed from actual status below
+        }
+        launchAtLogin = (SMAppService.mainApp.status == .enabled)
     }
 
     private func restart() {
